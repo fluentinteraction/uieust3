@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App3 tasks</title>
+    <!-- Push login event to data layer -->
+    <script>
+        (function() {
+            var code = sessionStorage.getItem('custom_user_id');
+            if (code) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    'event': 'login',
+                    'custom_user_id': code
+                });
+            }
+        })();
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K45J2CVG');</script>
+    <!-- End Google Tag Manager -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        .not-complete {
+            color: orange;
+        }
+        .complete {
+            color: green;
+        }
+        .skipped {
+            color: grey;
+        }
+    </style>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body onload="loadCode()">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K45J2CVG"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <h1>Step 2</h1>
+    <div id="toolkit-display">
+        <p>Please take a note of this code: <b><span id="generated-code"></b></span>
+        <button onclick="copyCode()">Copy code</button></p>
+       <!-- <button onclick="resetCode()">Clear Data and Restart</button>-->
+    </div>
+
+    <table id="tasks-table">
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Update status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Task 1</td>
+                <td id="task1-status" class="not-complete">Not complete</td>
+                <td>
+                    <select id="task1-update">
+                        <option disabled selected>Select...</option>
+                    </select>
+                    <button onclick="updateStatus('task1')">Update status</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Task 2</td>
+                <td id="task2-status" class="not-complete">Not complete</td>
+                <td>
+                    <select id="task2-update">
+                        <option disabled selected>Select...</option>
+                    </select>
+                    <button onclick="updateStatus('task2')">Update status</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Task 3</td>
+                <td id="task3-status" class="not-complete">Not complete</td>
+                <td>
+                    <select id="task3-update">
+                        <option disabled selected>Select...</option>
+                    </select>
+                    <button onclick="updateStatus('task3')">Update status</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+ 
