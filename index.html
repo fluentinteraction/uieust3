@@ -33,6 +33,9 @@
     body {
         font-family: Arial, sans-serif;
     }
+    .hidden {
+            display: none;
+        }
 </style>
 </head>
 <body>
@@ -40,6 +43,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K45J2CVG"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+   <div id="hidden-section" class="hidden">
     <h1>Get my tasklist</h1>
     <div id="get-toolkit">
         <form id="business-size-form">
@@ -54,8 +58,8 @@
             <button type="button" onclick="generateCode()">Go</button>
         </form>
     </div>
-
-<!--<div id="retrieve-toolkit">
+	</div>
+<div id="retrieve-toolkit">
     <h2>Retrieve a tasklist</h2>
     <form id="retrieve-form" onsubmit="event.preventDefault(); retrieveToolkit();">
         <label for="code-input">Enter code</label>
@@ -63,6 +67,6 @@
         <button type="submit">Go</button>
     </form>
     <p id="error-message" style="color:red; display:none;">Code not found</p>
-</div>-->
+</div>
 </body>
 </html>
